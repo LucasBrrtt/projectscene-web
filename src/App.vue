@@ -1,0 +1,53 @@
+<script setup lang="ts">
+import { RouterView } from 'vue-router'
+</script>
+
+<template>
+  <div class="app-shell">
+    <main class="content-shell">
+      <RouterView />
+    </main>
+  </div>
+</template>
+
+<style scoped>
+.app-shell {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(0, 183, 181, 0.12), transparent 24%),
+    linear-gradient(180deg, #12191c 0%, #0f1719 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.app-shell::before,
+.app-shell::after {
+  content: '';
+  position: fixed;
+  border-radius: 999px;
+  pointer-events: none;
+  filter: blur(8px);
+}
+
+.app-shell::before {
+  top: 8rem;
+  left: -10rem;
+  width: 20rem;
+  height: 20rem;
+  background: rgba(0, 183, 181, 0.08);
+}
+
+.app-shell::after {
+  right: -9rem;
+  bottom: 2rem;
+  width: 20rem;
+  height: 20rem;
+  background: rgba(0, 183, 181, 0.06);
+}
+
+.content-shell {
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+</style>

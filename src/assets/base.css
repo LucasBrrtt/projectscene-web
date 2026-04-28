@@ -1,0 +1,41 @@
+:root {
+  --color-background: #0f1719;
+  --color-surface: rgba(24, 31, 34, 0.9);
+  --color-surface-strong: #182126;
+  --color-text: #edf6f6;
+  --color-text-muted: #94a8aa;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-accent: #00b7b5;
+  --color-accent-soft: rgba(0, 183, 181, 0.14);
+  --color-accent-strong: #00d1cf;
+  --color-shadow: 0 28px 80px rgba(0, 0, 0, 0.35);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.6;
+  font-family:
+    'Segoe UI',
+    'Helvetica Neue',
+    sans-serif;
+  font-size: 16px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
