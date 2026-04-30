@@ -1,4 +1,6 @@
 <script setup lang="ts">
+// Este componente encapsula o padrao visual dos inputs e centraliza
+// o v-model para evitar repeticao nas telas de formulario.
 const model = defineModel<string>({ required: true })
 
 defineProps<{

@@ -1,54 +1,77 @@
-# ProjectScene Web
+# Project Scene Web
 
-Frontend base em Vue 3 + Vite para trabalhar junto com o backend `projectscene-api`.
+Frontend em Vue 3 + Vite para a tela de autenticacao do projeto Project Scene.
 
-Estrutura atual baseada em flat structure para projetos pequenos, com `views`, `components`,
-`composables`, `services`, `types` e `router` organizados diretamente dentro de `src/`.
-
-## Stack inicial
+## Stack
 
 - Vue 3
 - Vite
 - TypeScript
 - Vue Router
-- Pinia
-- ESLint + Prettier
+- Bootstrap 5
+- ESLint
+- Prettier
+
+## Estrutura
+
+O projeto esta organizado em camadas simples dentro de `src/`:
+
+- `features/`: fluxos por dominio, como autenticacao e cadastro
+- `components/`: componentes visuais reutilizaveis
+- `views/`: composicao das telas ligadas ao roteamento
+- `app/`: shell raiz da aplicacao
+- `lib/`: infraestrutura compartilhada, como cliente HTTP
+- `router/`: rotas e guards
+- `assets/`: estilos globais
 
 ## Ambiente local
 
-O projeto usa `VITE_API_BASE_URL` para apontar para a API.
+Crie seu arquivo de ambiente com base em `.env.example`.
 
-Valor padrao configurado para desenvolvimento:
+Variavel usada no frontend:
 
 ```sh
-http://localhost:5046
+VITE_API_BASE_URL=http://localhost:5046
 ```
-
-Se precisar mudar, edite o arquivo `.env.development`.
 
 ## Comandos
 
+Instalacao:
+
 ```sh
 npm install
+```
+
+Desenvolvimento:
+
+```sh
 npm run dev
 ```
 
-Para build de producao:
+Build de producao:
 
 ```sh
 npm run build
 ```
 
-Para lint:
+Lint:
 
 ```sh
 npm run lint
 ```
 
-## Relacao com o backend
+Formatacao:
 
-- backend: `../projectscene-api`
-- frontend: `../projectscene-web`
-- API local padrao do backend ASP.NET Core: `http://localhost:5046`
+```sh
+npm run format
+```
 
-Suba o backend antes de integrar telas que consumam dados reais.
+## Integracao com backend
+
+O frontend ja esta integrado com a API via `VITE_API_BASE_URL`.
+
+Pontos principais:
+
+- autenticacao centralizada em `src/features/auth/`
+- cliente HTTP compartilhado em `src/lib/api/client.ts`
+- refresh token transportado por cookie HttpOnly
