@@ -1,0 +1,42 @@
+.test-view {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.test-card {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.5rem;
+  background: linear-gradient(180deg, rgba(24, 33, 38, 0.96), rgba(18, 25, 28, 0.98));
+  box-shadow: var(--color-shadow);
+}
+
+.test-eyebrow {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: var(--color-accent-strong);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.test-title {
+  margin-bottom: 0.75rem;
+  color: var(--color-text);
+}
+
+.test-copy {
+  margin-bottom: 1.5rem;
+  color: var(--color-text-muted);
+}
+
+.test-button {
+  border: 0;
+  border-radius: 0.9rem;
+  background: var(--color-accent);
+  color: #061415;
+  font-weight: 600;
+}

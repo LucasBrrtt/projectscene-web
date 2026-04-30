@@ -1,0 +1,107 @@
+.login-card {
+  background: linear-gradient(180deg, rgba(24, 33, 38, 0.96), rgba(18, 25, 28, 0.98));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--color-shadow);
+}
+
+.login-card .login-title {
+  color: var(--color-text);
+}
+
+.login-card .login-copy,
+.login-card .form-footer {
+  color: var(--color-text-muted);
+}
+
+.login-card .form-error {
+  color: #ff8f8f;
+}
+
+.login-card .form-status {
+  color: #9ed9d8;
+}
+
+.login-card .form-control,
+.login-card .btn,
+.login-card .form-check-input {
+  box-shadow: none !important;
+}
+
+.login-card .form-control {
+  border-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0.9rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  color: var(--color-text);
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+
+.login-card .form-control::placeholder {
+  color: rgba(237, 246, 246, 0.38);
+}
+
+.login-card .form-control:focus {
+  border-color: var(--color-accent);
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--color-text);
+}
+
+.login-card .forgot-link {
+  color: var(--color-accent);
+}
+
+.login-card .submit-button {
+  border: 1px solid transparent;
+  border-radius: 0.9rem;
+  background-color: var(--color-accent);
+  color: #061415;
+}
+
+.login-card .submit-button:hover,
+.login-card .submit-button:focus-visible {
+  background-color: var(--color-accent-strong);
+  color: #061415;
+}
+
+.login-card .submit-button:disabled {
+  background-color: rgba(0, 183, 181, 0.35);
+  color: rgba(6, 20, 21, 0.65);
+}
+
+.login-card .form-check {
+  color: var(--color-text-muted);
+}
+
+.login-card .remember-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--color-text);
+  line-height: 1;
+  cursor: pointer;
+}
+
+.login-card .remember-toggle__label {
+  color: rgba(237, 246, 246, 0.92);
+  line-height: 1.2;
+}
+
+.login-card .form-check-input {
+  margin: 0;
+  flex: 0 0 auto;
+  border-color: rgba(255, 255, 255, 0.2);
+  background-color: transparent;
+}
+
+.login-card .form-check-input:checked {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.login-card .form-check-input:focus {
+  border-color: var(--color-accent);
+}
+
+.login-card .form-label {
+  color: var(--color-text);
+}

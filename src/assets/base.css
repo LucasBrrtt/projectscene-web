@@ -1,4 +1,6 @@
 :root {
+  /* Tokens visuais compartilhados entre as telas.
+     Alterar aqui propaga a identidade base do frontend inteiro. */
   --color-background: #0f1719;
   --color-surface: rgba(24, 31, 34, 0.9);
   --color-surface-strong: #182126;
@@ -22,6 +24,8 @@ body {
   min-height: 100vh;
   background: var(--color-background);
   color: var(--color-text);
+  /* Essa base tipografica evita que cada componente precise
+     redefinir ajustes fundamentais de leitura. */
   line-height: 1.6;
   font-family:
     'Segoe UI',

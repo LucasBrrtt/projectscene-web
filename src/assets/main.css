@@ -5,6 +5,8 @@
 }
 
 body {
+  /* Remove a margem padrao para o layout ocupar a tela inteira
+     e deixar o fundo global controlado pelo app. */
   margin: 0;
 }
 

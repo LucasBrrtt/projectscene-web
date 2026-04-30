@@ -1,16 +1,20 @@
 <script setup lang="ts">
+import './LoginFormCard.css'
+
 import BaseTextField from '@/components/BaseTextField.vue'
 
 defineProps<{
-  email: string
+  username: string
   password: string
   rememberMe: boolean
   isSubmitting: boolean
   isSubmitDisabled: boolean
+  errorMessage: string
+  statusMessage?: string
 }>()
 
 const emit = defineEmits<{
-  'update:email': [value: string]
+  'update:username': [value: string]
   'update:password': [value: string]
   'update:rememberMe': [value: boolean]
   submit: []
@@ -18,6 +22,8 @@ const emit = defineEmits<{
 </script>
 
 <template>
+  <!-- Componente puramente visual: recebe estado pronto da view
+       e apenas redispara eventos de interacao para o container. -->
   <section class="card shadow-sm border-0 rounded-4 login-card">
     <div class="card-body p-4 p-md-5">
       <div class="text-center mb-4">
@@ -25,15 +31,16 @@ const emit = defineEmits<{
         <p class="mb-0 login-copy">Acesse sua conta para continuar.</p>
       </div>
 
+      <p v-if="statusMessage" class="mb-3 form-status" role="status">{{ statusMessage }}</p>
+
       <form class="d-grid gap-3" @submit.prevent="emit('submit')">
         <BaseTextField
-          id="email"
-          :model-value="email"
-          label="Email"
-          type="email"
-          autocomplete="email"
-          placeholder="voce@empresa.com"
-          @update:model-value="emit('update:email', $event)"
+          id="username"
+          :model-value="username"
+          label="Usuario"
+          autocomplete="username"
+          placeholder="Digite seu usuario"
+          @update:model-value="emit('update:username', $event)"
         />
 
         <BaseTextField
@@ -47,20 +54,22 @@ const emit = defineEmits<{
         />
 
         <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3 small">
-          <label class="form-check m-0 text-muted">
+          <label class="m-0 remember-toggle">
             <input
               class="form-check-input"
               type="checkbox"
               :checked="rememberMe"
               @change="emit('update:rememberMe', ($event.target as HTMLInputElement).checked)"
             />
-            <span class="ms-1">Manter conectado</span>
+            <span class="ms-1 remember-toggle__label">Manter conectado</span>
           </label>
 
           <button class="btn btn-link p-0 align-self-start text-decoration-none forgot-link" type="button">
             Esqueci minha senha
           </button>
         </div>
+
+        <p v-if="errorMessage" class="mb-0 form-error" role="alert">{{ errorMessage }}</p>
 
         <button
           class="btn btn-lg fw-semibold submit-button"
@@ -77,89 +86,3 @@ const emit = defineEmits<{
     </div>
   </section>
 </template>
-
-<style scoped>
-.login-card {
-  background: linear-gradient(180deg, rgba(24, 33, 38, 0.96), rgba(18, 25, 28, 0.98));
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: var(--color-shadow);
-}
-
-.login-title {
-  color: var(--color-text);
-}
-
-.login-copy,
-.form-footer {
-  color: var(--color-text-muted);
-}
-
-.form-control,
-.btn,
-.form-check-input {
-  box-shadow: none !important;
-}
-
-.form-control {
-  border-color: rgba(255, 255, 255, 0.1);
-  border-radius: 0.9rem;
-  background-color: rgba(255, 255, 255, 0.03);
-  color: var(--color-text);
-  padding-top: 0.85rem;
-  padding-bottom: 0.85rem;
-}
-
-.form-control::placeholder {
-  color: rgba(237, 246, 246, 0.38);
-}
-
-.form-control:focus {
-  border-color: var(--color-accent);
-  background-color: rgba(255, 255, 255, 0.05);
-  color: var(--color-text);
-}
-
-.forgot-link {
-  color: var(--color-accent);
-}
-
-.submit-button {
-  border: 1px solid transparent;
-  border-radius: 0.9rem;
-  background-color: var(--color-accent);
-  color: #061415;
-}
-
-.submit-button:hover,
-.submit-button:focus-visible {
-  background-color: var(--color-accent-strong);
-  color: #061415;
-}
-
-.submit-button:disabled {
-  background-color: rgba(0, 183, 181, 0.35);
-  color: rgba(6, 20, 21, 0.65);
-}
-
-.form-check {
-  color: var(--color-text-muted);
-}
-
-.form-check-input {
-  border-color: rgba(255, 255, 255, 0.2);
-  background-color: transparent;
-}
-
-.form-check-input:checked {
-  background-color: var(--color-accent);
-  border-color: var(--color-accent);
-}
-
-.form-check-input:focus {
-  border-color: var(--color-accent);
-}
-
-.form-label {
-  color: var(--color-text);
-}
-</style>
